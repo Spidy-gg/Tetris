@@ -48,7 +48,7 @@ public class Tetris{
             if(board[0][i] == 0) { board[0][i] = 2; }
             else { 
                 System.out.println("GAME OVER"); 
-                System.exit(0); }
+                frameBasedGameLoop.stop(); }
         } }
 
 
@@ -57,10 +57,12 @@ public class Tetris{
             if(board[0][i] == 0) { board[0][i] = 2; }
             else { 
                 System.out.println("GAME OVER"); 
-                System.exit(0); }
+                frameBasedGameLoop.stop(); }
         }
         if(board[1][5] == 0) { board[1][5] = 2; }
-            else { System.out.println("GAME OVER"); } }
+            else { 
+                System.out.println("GAME OVER");
+                frameBasedGameLoop.stop(); } }
 
 
     private void l() {
@@ -68,10 +70,12 @@ public class Tetris{
             if(board[0][i] == 0) { board[0][i] = 2; }
             else { 
                 System.out.println("GAME OVER"); 
-                System.exit(0); }
+                frameBasedGameLoop.stop(); }
         }
         if(board[1][3] == 0) { board[1][3] = 2; }
-            else { System.out.println("GAME OVER"); } }
+            else { 
+                System.out.println("GAME OVER");
+               frameBasedGameLoop.stop(); } }
 
 
     private void o() {
@@ -80,7 +84,7 @@ public class Tetris{
                 if(board[i][j] == 0) { board[i][j] = 2; }
                 else { 
                     System.out.println("GAME OVER"); 
-                    System.exit(0); }
+                    frameBasedGameLoop.stop(); }
             }
         } }
 
@@ -91,14 +95,14 @@ public class Tetris{
             if(board[0][i] == 0) { board[0][i] = 2; }
             else { 
                 System.out.println("GAME OVER"); 
-                System.exit(0); }
+                frameBasedGameLoop.stop(); }
         }
 
         for(int i = 3; i < 5; i++) {
             if(board[1][i] == 0) { board[1][i] = 2; }
             else { 
                 System.out.println("GAME OVER"); 
-                System.exit(0); }
+                frameBasedGameLoop.stop(); }
         } }
 
 
@@ -107,11 +111,13 @@ public class Tetris{
             if(board[0][i] == 0) { board[0][i] = 2; }
             else { 
                 System.out.println("GAME OVER"); 
-                System.exit(0); }
+                frameBasedGameLoop.stop(); }
         }
 
         if(board[1][4] == 0) { board[1][4] = 2; }
-            else { System.out.println("GAME OVER"); } }
+            else { 
+                System.out.println("GAME OVER");
+                frameBasedGameLoop.stop(); } }
 
 
     private void z() {
@@ -119,14 +125,14 @@ public class Tetris{
             if(board[0][i] == 0) { board[0][i] = 2; }
             else { 
                 System.out.println("GAME OVER"); 
-                System.exit(0); }
+                frameBasedGameLoop.stop(); }
         }
 
         for(int i = 4; i < 6; i++) {
             if(board[1][i] == 0) { board[1][i] = 2; }
             else { 
                 System.out.println("GAME OVER"); 
-                System.exit(0); }
+                frameBasedGameLoop.stop(); }
         } 
     }
 
