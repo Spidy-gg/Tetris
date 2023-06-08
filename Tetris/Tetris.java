@@ -1,14 +1,13 @@
 import java.util.ArrayList;
 import java.lang.Thread;
-public class Tetris{
+public class Tetris extends GameLoop{
     int[][] board;
 
-    public  Tetris() {
-        board = new int[20][10];
-        make();
+    public Tetris() {
+        board = new int[20][10]; 
     }
 
-    private void print() {
+    public void print() {
         
         try {
             Thread.sleep(500);
@@ -28,7 +27,7 @@ public class Tetris{
         }
     }
 
-    private void make() {
+    public void make() {
         int num = (int) (Math.random() * 7);
         if(num == 0) { i(); }
         else if(num == 1) { j(); }
@@ -38,105 +37,104 @@ public class Tetris{
         else if(num == 5) { t(); }
         else if(num == 6) { z(); }
         print();
-        rotate();
         move();
 
     }
 
-    private void i() {
+    public void i() {
         for(int i = 3; i < 7; i++) {
             if(board[0][i] == 0) { board[0][i] = 2; }
             else { 
                 System.out.println("GAME OVER"); 
-                frameBasedGameLoop.stop(); }
+                this.stop(); }
         } }
 
 
-    private void j() {
+    public void j() {
         for(int i = 3; i < 6; i++) {
             if(board[0][i] == 0) { board[0][i] = 2; }
             else { 
                 System.out.println("GAME OVER"); 
-                frameBasedGameLoop.stop(); }
+                this.stop(); }
         }
         if(board[1][5] == 0) { board[1][5] = 2; }
             else { 
                 System.out.println("GAME OVER");
-                frameBasedGameLoop.stop(); } }
+                this.stop(); } }
 
 
-    private void l() {
+    public void l() {
         for(int i = 3; i < 6; i++) {
             if(board[0][i] == 0) { board[0][i] = 2; }
             else { 
                 System.out.println("GAME OVER"); 
-                frameBasedGameLoop.stop(); }
+                this.stop(); }
         }
         if(board[1][3] == 0) { board[1][3] = 2; }
             else { 
                 System.out.println("GAME OVER");
-               frameBasedGameLoop.stop(); } }
+               this.stop(); } }
 
 
-    private void o() {
+    public void o() {
         for(int i = 0; i < 2; i++) {
             for(int j = 4; j < 6; j++) {
                 if(board[i][j] == 0) { board[i][j] = 2; }
                 else { 
                     System.out.println("GAME OVER"); 
-                    frameBasedGameLoop.stop(); }
+                    this.stop(); }
             }
         } }
 
 
-    private void s() {
+    public void s() {
 
         for(int i = 4; i < 6; i++) {
             if(board[0][i] == 0) { board[0][i] = 2; }
             else { 
                 System.out.println("GAME OVER"); 
-                frameBasedGameLoop.stop(); }
+                this.stop(); }
         }
 
         for(int i = 3; i < 5; i++) {
             if(board[1][i] == 0) { board[1][i] = 2; }
             else { 
                 System.out.println("GAME OVER"); 
-                frameBasedGameLoop.stop(); }
+                this.stop(); }
         } }
 
 
-    private void t() {
+    public void t() {
         for(int i = 3; i < 6; i++) {
             if(board[0][i] == 0) { board[0][i] = 2; }
             else { 
                 System.out.println("GAME OVER"); 
-                frameBasedGameLoop.stop(); }
+                this.stop(); }
         }
 
         if(board[1][4] == 0) { board[1][4] = 2; }
             else { 
                 System.out.println("GAME OVER");
-                frameBasedGameLoop.stop(); } }
+                this.stop(); } }
 
 
-    private void z() {
+    public void z() {
         for(int i = 3; i < 5; i++) {
             if(board[0][i] == 0) { board[0][i] = 2; }
             else { 
                 System.out.println("GAME OVER"); 
-                frameBasedGameLoop.stop(); }
+                this.stop(); }
         }
 
         for(int i = 4; i < 6; i++) {
             if(board[1][i] == 0) { board[1][i] = 2; }
             else { 
                 System.out.println("GAME OVER"); 
-                frameBasedGameLoop.stop(); }
+                this.stop(); }
         } 
     }
 
-    private boolean canMove() {
+    public boolean canMove() {
         ArrayList<String> check = new ArrayList<String>();
         int row;
         int col;
@@ -157,10 +155,13 @@ public class Tetris{
             }
         }
         return true; }
-    private void move() {
+    public void move() {
 
-        
-
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            System.out.println("null");
+        } 
         ArrayList<String> peice = new ArrayList<String>();
         for(int i = 0; i < 20; i++) {
             for(int j = 0; j < 10; j++) {
@@ -190,7 +191,7 @@ public class Tetris{
         }
     }
 
-    private boolean canLeft() {
+    public boolean canLeft() {
         ArrayList<String> check = new ArrayList<String>();
         int row;
         int col;
@@ -211,7 +212,7 @@ public class Tetris{
         }
         return true; }
 
-    private void left() {
+    public void left() {
         ArrayList<String> peice = new ArrayList<String>();
         for(int i = 0; i < 20; i++) {
             for(int j = 0; j < 10; j++) {
@@ -231,7 +232,7 @@ public class Tetris{
         }
     }
 
-    private boolean canRight() {
+    public boolean canRight() {
         ArrayList<String> check = new ArrayList<String>();
         int row;
         int col;
@@ -252,7 +253,7 @@ public class Tetris{
         }
         return true; }
 
-    private void right() {
+    public void right() {
         ArrayList<String> peice = new ArrayList<String>();
         for(int i = 0; i < 20; i++) {
             for(int j = 0; j < 10; j++) {
@@ -272,7 +273,7 @@ public class Tetris{
         }
     }
 
-    private int checkClear() {
+    public int checkClear() {
         boolean full;
         for(int i = 0; i < 20; i++) {
             full = true;
@@ -287,7 +288,7 @@ public class Tetris{
         }
         return -1; }
 
-    private void clear() {
+    public void clear() {
         int num = checkClear();
         int[] row;
         int[] blank = new int[10];
@@ -301,7 +302,7 @@ public class Tetris{
         } else { return; }
     }
 
-    private ArrayList<String> canRotate() {
+    public ArrayList<String> canRotate() {
         boolean can = true;
         ArrayList<String> check = new ArrayList<String>();
         ArrayList<String> rot = new ArrayList<String>();
@@ -353,7 +354,7 @@ public class Tetris{
         if(can) { return rot; }
         else { return new ArrayList<String>(); } }
     
-    private void rotate() {
+    public void rotate() {
         ArrayList<String> rot = canRotate();
         ArrayList<String> old = new ArrayList<String>();
 
