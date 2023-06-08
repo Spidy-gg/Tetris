@@ -271,7 +271,6 @@ public class Tetris {
             }
         }
         return true; }
-
     public void left() {
         ArrayList<String> peice = new ArrayList<String>();
         for(int i = 0; i < 20; i++) {
@@ -312,7 +311,6 @@ public class Tetris {
             }
         }
         return true; }
-
     public void right() {
         ArrayList<String> peice = new ArrayList<String>();
         for(int i = 0; i < 20; i++) {
@@ -347,7 +345,6 @@ public class Tetris {
             }
         }
         return -1; }
-
     public void clear() {
         int num = checkClear();
         int[] row;
@@ -413,7 +410,6 @@ public class Tetris {
 
         if(can) { return rot; }
         else { return new ArrayList<String>(); } }
-    
     public void rotate() {
         ArrayList<String> rot = canRotate();
         ArrayList<String> old = new ArrayList<String>();
