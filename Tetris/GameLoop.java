@@ -7,7 +7,7 @@ public class GameLoop {
   
     //public final Logger logger = Logger.getLogger(this.getClass());
   
-    public volatile GameStatus status;
+    public static GameStatus status;
 
     public Scanner myObj;
   
@@ -16,9 +16,9 @@ public class GameLoop {
     public Thread gameThread;
   
     public GameLoop(Tetris nt) {
-      //t = nt;
-      //status = GameStatus.STOPPED;
-      //myObj = new Scanner(System.in);
+      t = nt;
+      status = GameStatus.STOPPED;
+      myObj = new Scanner(System.in);
     }
   
     public void run() {
@@ -28,7 +28,7 @@ public class GameLoop {
  
     }
   
-    public void stop() {
+    public static void stop() {
       status = GameStatus.STOPPED;
     }
   
@@ -37,13 +37,13 @@ public class GameLoop {
     }
   
     public void processInput() {
- /*   while(isGameRunning()) {
+      while(isGameRunning()) {
         String move = myObj.nextLine();
         if(move.equals("a")) {t.left();}
         else if (move.equals("d")) {t.right();}
         else if (move.equals("w")) {t.rotate();}
       }
-*/
+
     return;
     }
   
