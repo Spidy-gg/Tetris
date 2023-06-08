@@ -11,17 +11,23 @@ public class Tetris {
         
         try {
             Thread.sleep(500);
-        } catch (Exception e) {
+        } 
+        catch (Exception e) {
             System.out.println("test");
         }
 
         for(int i = 0; i < 1000; i++) {
-            System.out.println("\b"); }
+            System.out.println("\b"); 
+        }
 
         for(int[] i : board) {
             for(int j : i) {
-                if(j == 0) { System.out.print("0  "); }
-                else { System.out.print("[] ");}
+                if(j == 0) { 
+                    System.out.print("0  "); 
+                }
+                else { 
+                    System.out.print("[] ");
+                }
             }
             System.out.println();
         }
@@ -30,12 +36,24 @@ public class Tetris {
     public void make() {
         int num = (int) (Math.random() * 7);
         if(num == 0) { i(); }
-        else if(num == 1) { j(); }
-        else if(num == 2) { l(); }
-        else if(num == 3) { o(); }
-        else if(num == 4) { s(); }
-        else if(num == 5) { t(); }
-        else if(num == 6) { z(); }
+        else if(num == 1) { 
+            j(); 
+        }
+        else if(num == 2) { 
+            l(); 
+        }
+        else if(num == 3) { 
+            o(); 
+        }
+        else if(num == 4) { 
+            s(); 
+        }
+        else if(num == 5) { 
+            t(); 
+        }
+        else if(num == 6) { 
+            z(); 
+        }
         print();
         move();
 
@@ -43,94 +61,136 @@ public class Tetris {
 
     public void i() {
         for(int i = 3; i < 7; i++) {
-            if(board[0][i] == 0) { board[0][i] = 2; }
+            if(board[0][i] == 0) { 
+                board[0][i] = 2; 
+            }
             else { 
                 System.out.println("GAME OVER"); 
-                GameLoop.stop(); }
-        } }
+                GameLoop.stop(); 
+            }
+        } 
+    }
 
 
     public void j() {
         for(int i = 3; i < 6; i++) {
-            if(board[0][i] == 0) { board[0][i] = 2; }
+            if(board[0][i] == 0) { 
+                board[0][i] = 2; 
+            }
             else { 
                 System.out.println("GAME OVER"); 
-                GameLoop.stop(); }
+                GameLoop.stop(); 
+            }
         }
-        if(board[1][5] == 0) { board[1][5] = 2; }
-            else { 
-                System.out.println("GAME OVER");
-                GameLoop.stop(); } }
+        if(board[1][5] == 0) { 
+            board[1][5] = 2; 
+        }
+        else { 
+            System.out.println("GAME OVER");
+            GameLoop.stop(); 
+        } 
+    }
 
 
     public void l() {
         for(int i = 3; i < 6; i++) {
-            if(board[0][i] == 0) { board[0][i] = 2; }
+            if(board[0][i] == 0) { 
+                board[0][i] = 2; 
+            }
             else { 
                 System.out.println("GAME OVER"); 
-                GameLoop.stop(); }
+                GameLoop.stop(); 
+            }
         }
-        if(board[1][3] == 0) { board[1][3] = 2; }
-            else { 
-                System.out.println("GAME OVER");
-               GameLoop.stop(); } }
+        if(board[1][3] == 0) { 
+            board[1][3] = 2; 
+        }
+        else { 
+            System.out.println("GAME OVER");
+            GameLoop.stop(); 
+        }
+    }
 
 
     public void o() {
         for(int i = 0; i < 2; i++) {
             for(int j = 4; j < 6; j++) {
-                if(board[i][j] == 0) { board[i][j] = 2; }
+                if(board[i][j] == 0) { 
+                    board[i][j] = 2; 
+                }
                 else { 
                     System.out.println("GAME OVER"); 
-                    GameLoop.stop(); }
+                    GameLoop.stop(); 
+                }
             }
-        } }
+        } 
+    }
 
 
     public void s() {
 
         for(int i = 4; i < 6; i++) {
-            if(board[0][i] == 0) { board[0][i] = 2; }
+            if(board[0][i] == 0) { 
+                board[0][i] = 2; 
+            }
             else { 
                 System.out.println("GAME OVER"); 
-                GameLoop.stop(); }
+                GameLoop.stop(); 
+            }
         }
 
         for(int i = 3; i < 5; i++) {
-            if(board[1][i] == 0) { board[1][i] = 2; }
+            if(board[1][i] == 0) { 
+                board[1][i] = 2; 
+            }
             else { 
                 System.out.println("GAME OVER"); 
-                GameLoop.stop(); }
-        } }
+                GameLoop.stop(); 
+            }
+        } 
+    }
 
 
     public void t() {
         for(int i = 3; i < 6; i++) {
-            if(board[0][i] == 0) { board[0][i] = 2; }
+            if(board[0][i] == 0) { 
+                board[0][i] = 2; 
+            }
             else { 
                 System.out.println("GAME OVER"); 
-                GameLoop.stop(); }
+                GameLoop.stop(); 
+            }
         }
 
-        if(board[1][4] == 0) { board[1][4] = 2; }
+        if(board[1][4] == 0) { 
+            board[1][4] = 2; 
+        }
             else { 
                 System.out.println("GAME OVER");
-                GameLoop.stop(); } }
+                GameLoop.stop(); 
+            } 
+        }
 
 
     public void z() {
         for(int i = 3; i < 5; i++) {
-            if(board[0][i] == 0) { board[0][i] = 2; }
+            if(board[0][i] == 0) { 
+                board[0][i] = 2; 
+            }
             else { 
                 System.out.println("GAME OVER"); 
-                GameLoop.stop(); }
+                GameLoop.stop(); 
+            }
         }
 
         for(int i = 4; i < 6; i++) {
-            if(board[1][i] == 0) { board[1][i] = 2; }
+            if(board[1][i] == 0) { 
+                board[1][i] = 2; 
+            }
             else { 
                 System.out.println("GAME OVER"); 
-                GameLoop.stop(); }
+                GameLoop.stop(); 
+            }
         } 
     }
 
