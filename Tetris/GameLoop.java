@@ -3,20 +3,20 @@ import java.util.Scanner;
 
 
   
-public abstract class GameLoop {
+public class GameLoop {
   
-    //protected final Logger logger = Logger.getLogger(this.getClass());
+    //public final Logger logger = Logger.getLogger(this.getClass());
   
-    protected volatile GameStatus status;
+    public static GameStatus status;
 
-    private Scanner myObj;
+    public Scanner myObj;
   
-    protected Tetris t;
+    public Tetris t;
   
-    private Thread gameThread;
+    public Thread gameThread;
   
-    public GameLoop() {
-      t = new Tetris();
+    public GameLoop(Tetris nt) {
+      t = nt;
       status = GameStatus.STOPPED;
       myObj = new Scanner(System.in);
     }
@@ -28,7 +28,7 @@ public abstract class GameLoop {
  
     }
   
-    public void stop() {
+    public static void stop() {
       status = GameStatus.STOPPED;
     }
   
@@ -36,23 +36,22 @@ public abstract class GameLoop {
       return status == GameStatus.RUNNING;
     }
   
-    protected void processInput() {
-      try {
+    public void processInput() {
+      while(isGameRunning()) {
         String move = myObj.nextLine();
         if(move.equals("a")) {t.left();}
         else if (move.equals("d")) {t.right();}
         else if (move.equals("w")) {t.rotate();}
-      } catch (InterruptedException e) {
-        //logger.error(e.getMessage());
       }
+
+    return;
     }
   
-    protected void render() {
-        float position = controller.getBulletPosition();
-        System.out.println(position);
+    public void render() {
+        t.print();
     }
   
-    protected void processGameLoop() {
+    public void processGameLoop() {
         while (isGameRunning()) {
           processInput();
           update();
@@ -60,8 +59,8 @@ public abstract class GameLoop {
         }
       }
     
-      protected void update() {
-        controller.moveBullet(0.5f);
+      public void update() {
+        t.make();
       }
 }
   

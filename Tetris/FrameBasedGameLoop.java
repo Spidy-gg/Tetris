@@ -1,4 +1,4 @@
-public class FrameBasedGameLoop extends GameLoop {
+/*public class FrameBasedGameLoop extends GameLoop {
 
     @Override
     protected void processGameLoop() {
@@ -9,7 +9,7 @@ public class FrameBasedGameLoop extends GameLoop {
       }
     }
   
-    protected void update() {
-      controller.moveBullet(0.5f);
-    }
-  }
+    //protected void update() {
+      //super();
+    //}
+  }  */
