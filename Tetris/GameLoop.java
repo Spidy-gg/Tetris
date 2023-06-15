@@ -1,11 +1,8 @@
-import java.util.Random;
 import java.util.Scanner;
 
 
   
 public class GameLoop {
-  
-    //public final Logger logger = Logger.getLogger(this.getClass());
   
     public static GameStatus status;
 
@@ -43,8 +40,8 @@ public class GameLoop {
         else if (move.equals("d")) {t.right();}
         else if (move.equals("w")) {t.rotate();}
       }
+      System.exit(0);
 
-    return;
     }
   
     public void render() {
