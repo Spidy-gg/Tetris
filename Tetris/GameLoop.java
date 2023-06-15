@@ -22,7 +22,6 @@ public class GameLoop {
       status = GameStatus.RUNNING;
       gameThread = new Thread(this::processGameLoop);
       gameThread.start();
- 
     }
   
     public static void stop() {
